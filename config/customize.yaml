@@ -1,0 +1,8 @@
+person.simon:
+  entity_picture: /local/pics/simon.jpeg
+
+person.wilhem:
+  entity_picture: /local/pics/wilhem.jpeg
+
+person.adrien:
+  entity_picture: /local/pics/adrien.jpeg

@@ -1,0 +1,103 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: #REDACTED#
+  server_port: #REDACTED#
+  server_host: #REDACTED#
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Custom Themes
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Custom Integrations
+sensor:
+  - platform: google_wifi
+    host: #REDACTED#
+    name: Google Wifi
+    monitored_conditions:
+      - 'current_version'
+      - 'new_version'
+      - 'uptime'
+      - 'last_restart'
+      - 'local_ip'
+      - 'status'
+  - platform: openweathermap
+    api_key: #REDACTED#
+    forecast: true
+    monitored_conditions:
+      - weather
+
+# Custom Apps
+spotify:
+  client_id: #REDACTED#
+  client_secret: #REDACTED#
+
+withings:
+  client_id: #REDACTED#
+  client_secret: #REDACTED#
+  profiles:
+    - Simon
+
+speedtestdotnet:
+  server_id: 24394
+  scan_interval:
+    minutes: 240
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# Tracking
+device_tracker:
+  - platform: nmap_tracker
+    hosts: #REDACTED#
+    home_interval: 10
+    track_new_devices: yes
+    interval_seconds: 60
+    consider_home: 1200
+  - platform: ping
+    interval_seconds: 60
+    consider_home: 1200
+    hosts:
+      simon: 192.168.86.32
+      adrien: 192.168.86.43
+      wilhem: 192.168.86.22
+
+# Custom Groups
+light:
+  - platform: group
+    name: Salon Lights
+    entities:
+      - light.salon_droit
+      - light.salon_gauche
+      - light.armoire
+      - light.tv
+  - platform: group
+    name: Couloir
+    entities:
+      - light.couloir_1
+      - light.couloir_2
+      - light.couloir_3
+  - platform: group
+    name: Wilmon
+    entities:
+      - light.wilhem
+      - light.simon
+
+# Customize
+homeassistant:
+  customize: !include customize.yaml

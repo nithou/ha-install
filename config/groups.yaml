@@ -1,0 +1,25 @@
+# Example configuration.yaml entry
+Salon:
+  name: Salon Group
+  entities:
+    - light.salon_droit
+    - light.salon_gauche
+    - light.armoire
+    - light.tv
+couloir:
+  name: Couloir
+  entities:
+    - light.couloir_1
+    - light.couloir_2
+    - light.couloir_3
+wilmon:
+  name: Wilmon Lights
+  entities:
+    - light.wilhem
+    - light.simon
+
+Family:
+  entities:
+      - device_tracker.simon
+      - device_tracker.wilhem
+      - device_tracker.adrien
