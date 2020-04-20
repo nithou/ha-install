@@ -1,0 +1,40 @@
+entities:
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+name: Internet Speed
+show:
+  color_thresholds:
+    - color: '#b0ff57'
+      value: 300
+    - color: '#b0ff57'
+      value: 480
+    - color: '#b0ff57'
+      value: 512
+  labels: true
+type: 'custom:mini-graph-card'
+
+entity: sensor.transmission_active_torrents
+from: left
+max: 20
+min: 0
+scale: 25px
+severity:
+  - style: var(--label-badge-green)
+    value: 1
+  - style: var(--label-badge-yellow)
+    value: 5
+  - style: var(--label-badge-red)
+    value: 10
+title: Transmission
+type: 'custom:bignumber-card'
+
+aspect_ratio: 80%
+camera_image: camera.yago_cleaning_map
+entity: camera.yago_cleaning_map
+hold_action:
+  action: none
+name: Last Cleaning Map
+show_name: true
+tap_action:
+  action: none
+type: picture-entity

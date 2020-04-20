@@ -1,0 +1,26 @@
+entities:
+  - sensor.france_coronavirus_confirmed
+icon: 'fas:user-md'
+name: Coronavirus (France)
+show:
+  icon: true
+  name: true
+  state: true
+type: 'custom:mini-graph-card'
+
+color_thresholds:
+  - color: '#64dd17'
+    value: 20
+  - color: '#fff263'
+    value: 21
+  - color: '#fbc02d'
+    value: 22
+entities:
+  - sensor.couloir_mouvements_temperature
+hours_to_show: 24
+points_per_hour: 1
+show:
+  icon: true
+  name: true
+  state: true
+type: 'custom:mini-graph-card'
