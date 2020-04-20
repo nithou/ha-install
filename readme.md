@@ -1,4 +1,4 @@
-https://github.com/nithou/ha-install/blob/master/final-clean.jpg
+![How it looks](https://github.com/nithou/ha-install/blob/master/final-clean.jpg)
 
 # Integrations
 - HACS
